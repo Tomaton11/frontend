@@ -10,27 +10,25 @@ import isAuthenticatedState from '../context/AuthContext'
 const HomeScreen = () => {
 	const { isAuthenticatedState } = useContext(AuthContext)
 	return (
-		<div>
-		/* <body className = "home"> */
-		{/* <!-- Navegación --> */}
-
-		<header class="header">
-			<div class="container header-container">
-				<div class="logo-nav">
-					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/1200px-Slack_icon_2019.svg.png" alt="Slack" class="logo"/>
-					<nav class="main-nav">
+	<div>
+		
+		<header className ="header">
+			<div className ="container header-container">
+				<div className ="logo-nav">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/1200px-Slack_icon_2019.svg.png" alt="Slack" className ="logo"/>
+					<nav className ="main-nav">
 						<ul>
-							<li class="dropdown">
-								<a href="#">Funciones <span class="arrow-down">▼</span></a>
+							<li className ="dropdown">
+								<a href="#">Funciones <span className ="arrow-down">▼</span></a>
 							</li>
-							<li class="dropdown">
-								<a href="#">Soluciones <span class="arrow-down">▼</span></a>
+							<li className ="dropdown">
+								<a href="#">Soluciones <span className ="arrow-down">▼</span></a>
 							</li>
 							<li>
 								<a href="#">Empresa</a>
 							</li>
-							<li class="dropdown">
-								<a href="#">Recursos <span class="arrow-down">▼</span></a>
+							<li className ="dropdown">
+								<a href="#">Recursos <span className ="arrow-down">▼</span></a>
 							</li>
 							<li>
 								<a href="#">Precios</a>
@@ -38,86 +36,85 @@ const HomeScreen = () => {
 						</ul>
 					</nav>
 				</div>
-				<div class="header-buttons">
-					<button class="btn btn-outline">HABLAR CON VENTAS</button>
-					<button class="btn btn-primary">CREA UN NUEVO ESPACIO DE TRABAJO</button>
+				<div className ="header-buttons">
+					<button className ="btn btn-outline">HABLAR CON VENTAS</button>
+					<button className ="btn btn-primary">CREA UN NUEVO ESPACIO DE TRABAJO</button>
 				</div>
 			</div>
 		</header>
 	
 		{/* <!-- Contenido principal --> */}
-		<main class="main-content">
-			<div class="container">
+		<main className ="main-content">
+			<div className ="container">
 				{/* <!-- Saludo --> */}
-				<div class="greeting">
-					<h1><span class="wave-emoji">👋</span>¡Hola otra vez!</h1>
+				<div className ="greeting">
+					<h1><span className ="wave-emoji">👋</span>¡Hola otra vez!</h1>
 				</div>
 	
 				{/* <!-- Contenedor de espacios de trabajo --> */}
-				<div class="workspaces-container">
-					<div class="workspace-header">
+				<div className ="workspaces-container">
+					<div className="workspace-header">
 						Espacios de trabajo de 
 					</div>
 	
 					{/* <!-- Espacio de trabajo 1 --> */}
-					<div class="workspace-item">
-						<div class="workspace-info">
-							<div class="workspace-icon">
-								<div class="icon-left"></div>
-								<div class="icon-right"></div>
+					<div className ="workspace-item">
+						<div className ="workspace-info">
+							<div className ="workspace-icon">
+								<div className ="icon-left"></div>
+								<div className ="icon-right"></div>
 							</div>
-							<div class="workspace-details">
-								<div class="workspace-name"></div>
-								<div class="workspace-members">
-									<div class="member-avatars">
-										<div class="avatar"></div>
-										<div class="avatar"></div>
-										<div class="avatar"></div>
-										<div class="avatar"></div>
+							<div className ="workspace-details">
+								<div className ="workspace-name"></div>
+								<div className ="workspace-members">
+									<div className ="member-avatars">
+										<div className ="avatar"></div>
+										<div className ="avatar"></div>
+										<div className ="avatar"></div>
+										<div className ="avatar"></div>
 									</div>
-									<span class="member-count"></span>
+									<span className ="member-count"></span>
 								</div>
 							</div>
 						</div>
-						<button class="btn btn-slack" id="iniciar-slack-1">INICIAR SLACK</button>
+						<button className ="btn btn-slack" id="iniciar-slack-1">INICIAR SLACK</button>
 					</div>
 
 					{/* <!-- Ver más --> */}
-					<div class="ver-mas">
-						<button id="ver-mas-btn">Ver más <span class="arrow-down">▼</span></button>
+					<div className ="ver-mas">
+						<button id="ver-mas-btn">Ver más <span className ="arrow-down">▼</span></button>
 					</div>
 				</div>
 	
 				{/* <!-- Crear nuevo espacio de trabajo --> */}
-				<div class="new-workspace-container">
-					<div class="new-workspace-content">
-						<div class="new-workspace-text">
+				<div className ="new-workspace-container">
+					<div className ="new-workspace-content">
+						<div className ="new-workspace-text">
 							<p>¿Quieres usar Slack con un equipo distinto?</p>
-							<button class="btn btn-primary" id="crear-espacio-btn">CREA UN NUEVO ESPACIO DE TRABAJO</button>
+							<button className ="btn btn-primary" id="crear-espacio-btn">CREA UN NUEVO ESPACIO DE TRABAJO</button>
 						</div>
 					</div>
 				</div>
 	
 				{/* <!-- Texto de ayuda --> */}
-				<div class="help-text">
-					¿No puedes ver tu espacio de trabajo? <a href="#" class="link">Prueba con un correo electrónico diferente →</a>
+				<div className ="help-text">
+					¿No puedes ver tu espacio de trabajo? <a href="#" className ="link">Prueba con un correo electrónico diferente →</a>
 				</div>
 			</div>
 		</main>
 	
 		{/* <!-- Pie de página --> */}
-		<footer class="footer">
-			<div class="container">
+		<footer className ="footer">
+			<div className ="container">
 				<h2>Aprende a usar Slack para trabajar</h2>
 			</div>
 		</footer>
 	
 		<script src="script.js"></script>
-	</body>
-	</div>
+
+	</div>	
 	)
 }
-
 export default HomeScreen
 
 
