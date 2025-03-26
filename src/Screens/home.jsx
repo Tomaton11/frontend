@@ -10,7 +10,8 @@ import isAuthenticatedState from '../context/AuthContext'
 const HomeScreen = () => {
 	const { isAuthenticatedState } = useContext(AuthContext)
 	return (
-		<body class = "home">
+		<div>
+		/* <body className = "home"> */
 		{/* <!-- Navegación --> */}
 
 		<header class="header">
@@ -113,7 +114,7 @@ const HomeScreen = () => {
 	
 		<script src="script.js"></script>
 	</body>
-	
+	</div>
 	)
 }
 
