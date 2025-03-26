@@ -4,21 +4,35 @@ import LoginScreen from './Screens/LoginScreen'
 import RegisterScreen from './Screens/RegisterScreen'
 import ResetPasswordScreen from './Screens/ResetPasswordScreen'
 import RewritePasswordScreen from './Screens/RewritePasswordScreen'
-
-
+import ProtectedRoute from './Components/ProptectedRoute'
+import HomeScreen from './Screens/home'
+import WorkspacesScreen from './Screens/workspaces'
 function App() {
 
-
     return (
-<div>
-    <Routes>
-        <Route path="/login" element={<LoginScreen />} />
-        <Route path="/register" element={<RegisterScreen />} />
-        <Route path="/" element={<LoginScreen />} />
-        <Route path="/reset-password" element={<ResetPasswordScreen/>} />
-        <Route path="/rewrite-password" element={<RewritePasswordScreen/>} />
-    </Routes>
-</div>
+        <div>
+            <Routes>
+
+                    <Route path='/login' element={<LoginScreen />} />
+
+                    <Route path="/register" element={<RegisterScreen />} />
+
+
+                    <Route element = {<ProtectedRoute/>}>
+                    <Route path='/' element={<HomeScreen />} />
+                    </Route>
+                    
+                    <Route path='/reset-password' element={<ResetPasswordScreen />} />
+
+                    <Route element={<ProtectedRoute/>}>
+                    <Route path='/rewrite-password' element={<RewritePasswordScreen />}/>
+                    </Route>
+                    {/* <Route path='/home' element={<HomeScreen />} /> */}
+
+                    <Route path='/workspaces' element={<WorkspacesScreen />} />
+
+            </Routes>
+        </div>
     )
 }
 

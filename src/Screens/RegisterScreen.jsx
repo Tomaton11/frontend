@@ -11,8 +11,8 @@ const RegisterScreen = () => {
         password: ''
     }
     const { formState, handleChangeInput } = useForm(formInitialState)
-    
-    const {responseApiState, postRequest } = useApiRequest(ENVIROMENT.URL_API + '/api/auth/register')
+
+    const { responseApiState, postRequest } = useApiRequest(ENVIROMENT.URL_API + '/api/auth/register')
 
 
     const handleSubmitForm = async (event) => {
@@ -59,13 +59,14 @@ const RegisterScreen = () => {
                     />
                 </div>
                 {
-                    responseApiState.error && <span style={{color: 'red'}}>{responseApiState.error}</span>
+                    responseApiState.error && <span style={{ color: 'red' }}>{responseApiState.error}</span>
                 }
                 {
                     responseApiState.loading
                         ? <span>Cargando</span>
                         : <button type='submit' >Registrar</button>
                 }
+
 
             </form>
         </div>
