@@ -6,7 +6,7 @@ import ResetPasswordScreen from './Screens/ResetPasswordScreen'
 import RewritePasswordScreen from './Screens/RewritePasswordScreen'
 import ProtectedRoute from './Components/ProptectedRoute'
 import HomeScreen from './Screens/home'
-import WorkspacesScreen from './Screens/workspaces'
+
 function App() {
 
     return (
@@ -29,7 +29,7 @@ function App() {
                     </Route>
                     {/* <Route path='/home' element={<HomeScreen />} /> */}
 
-                    <Route path='/workspaces' element={<WorkspacesScreen />} />
+
 
             </Routes>
         </div>
