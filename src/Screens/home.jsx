@@ -2,20 +2,20 @@ import React from 'react'
 import { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext'
 import { Link } from 'react-router-dom'
-import  './stylesScreens/styleHome.css'
-
+import '../styles/HomeScreen.css'
 import { useNavigate } from 'react-router-dom'
 import isAuthenticatedState from '../context/AuthContext'
 
 const HomeScreen = () => {
 	const { isAuthenticatedState } = useContext(AuthContext)
 	return (
-	<div>
+
 		
+		<div className ="home">
 		<header className ="header">
 			<div className ="container header-container">
 				<div className ="logo-nav">
-					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/1200px-Slack_icon_2019.svg.png" alt="Slack" className ="logo"/>
+					<img src="https://a.slack-edge.com/3d92b39/marketing/img/nav/slack-salesforce-logo-nav-white.png" alt="Slack" className ="logo"/>
 					<nav className ="main-nav">
 						<ul>
 							<li className ="dropdown">
@@ -36,13 +36,15 @@ const HomeScreen = () => {
 						</ul>
 					</nav>
 				</div>
-				<div className ="header-buttons">
+			<div className ="header-buttons">
 					<button className ="btn btn-outline">HABLAR CON VENTAS</button>
-					<button className ="btn btn-primary">CREA UN NUEVO ESPACIO DE TRABAJO</button>
+					<Link to = "/workspaces">
+						<button className ="btn btn-outline">CREAR NUEVO ESPACIO DE TRABAJO</button>
+					</Link>
 				</div>
 			</div>
 		</header>
-	
+		
 		{/* <!-- Contenido principal --> */}
 		<main className ="main-content">
 			<div className ="container">
@@ -109,12 +111,10 @@ const HomeScreen = () => {
 				<h2>Aprende a usar Slack para trabajar</h2>
 			</div>
 		</footer>
-	
-		<script src="script.js"></script>
-
-	</div>	
+	</div>			
 	)
 }
+
 export default HomeScreen
 
 

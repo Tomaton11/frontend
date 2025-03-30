@@ -1,13 +1,13 @@
 /* Estilos generales */
-body.home {
+.home {
     background-color: var(--purple-primary);
     color: var(--white);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
-        --purple-primary: #4a154b;
+    --purple-primary: #4a154b;
     --purple-dark: #611f5c;
     --purple-light: #7a297a;
     --white: #ffffff;
@@ -19,10 +19,6 @@ body.home {
     --teal: #36c5f0;
 }
 
-/* :root {
-
-} */
-
 * {
     margin: 0;
     padding: 0;
@@ -30,12 +26,12 @@ body.home {
     font-family: "Lato", "Helvetica Neue", Arial, sans-serif;
 }
 
-.container {
+/* .container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
-}
+    padding: 10px;
+} */
 
 /* Botones */
 .btn {
@@ -78,13 +74,14 @@ body.home {
 
 /* Header */
 .header {
-    padding: 16px 0;
+    padding: 35px;
 }
 
 .header-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    /* justify-content: space-between; */
+    /* align-items: flex-start; */
+    gap: 50px;
 }
 
 .logo-nav {
@@ -92,9 +89,9 @@ body.home {
     align-items: center;
 }
 
-.logo {
-    width: 40px;
-    margin-right: 16px;
+.logo-home {
+    width: 150px;
+    margin-right: 30px;
 }
 
 .main-nav ul {

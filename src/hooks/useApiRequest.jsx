@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { ServerError } from "../utils/error"
-import ENVIROMENT from '../config/enviroment'
+import { ServerError } from "../utils/error.js"
+
 
 
 export const useApiRequest = (url) =>{
@@ -11,15 +11,21 @@ export const useApiRequest = (url) =>{
         data: null
     }
     const [responseApiState, setResponseApiState] = useState(initialResponseApiState)
+    const token = sessionStorage.getItem("authorization_token"); // Obtiene el token del sessionStorage
 
     const postRequest = async (body) => {
         try {
-            setResponseApiState({ ...initialResponseApiState, loading: true })
+            setResponseApiState((prevState) => {
+                return {
+                    ...prevState, loading: true
+                } 
+            })
             const response = await fetch(
                 url,
                 {
                     method: 'POST',
                     headers: {
+                        "Authorization": `Bearer ${token}`,
                         "Content-Type": 'application/json'
                     },
                     body: JSON.stringify(body)

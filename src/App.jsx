@@ -6,6 +6,7 @@ import ResetPasswordScreen from './Screens/ResetPasswordScreen'
 import RewritePasswordScreen from './Screens/RewritePasswordScreen'
 import ProtectedRoute from './Components/ProptectedRoute'
 import HomeScreen from './Screens/home'
+import CrearWorkspace from './Screens/Workspaces'
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
 
                     <Route path="/register" element={<RegisterScreen />} />
 
-
+                    <Route path='/workspaces' element={<CrearWorkspace />} />
                     <Route element = {<ProtectedRoute/>}>
                     <Route path='/' element={<HomeScreen />} />
                     </Route>

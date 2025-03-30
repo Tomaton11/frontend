@@ -1,12 +1,14 @@
-/* import React from "react";  
-import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { useForm } from "../hooks/useForm";
-import { useApiRequest } from "../hooks/useApiRequest";
-import ENVIROMENT from "../config/enviroment";  
-
+import React from 'react'
+import { useForm } from '../hooks/useForm'
+import { useApiRequest } from '../hooks/useApiRequest.jsx'
+import ENVIROMENT from '../config/enviroment'
+import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { AuthContext } from '../context/AuthContext'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { ServerError } from '../utils/error'
+import { useState } from 'react'
 
 
 const CrearWorkspace = () => {
@@ -16,7 +18,7 @@ const CrearWorkspace = () => {
     }
     const { formState, handleChangeInput } = useForm(formInitialState)
 
-    const { responseApiState, postRequest } = useApiRequest(ENVIROMENT.URL_API + '/api/auth/workspace')
+    const { responseApiState, postRequest } = useApiRequest(ENVIROMENT.URL_API + '/api/workspaces')
 
 
     const handleSubmitForm = async (event) => {
@@ -49,12 +51,15 @@ const CrearWorkspace = () => {
                 {
                     responseApiState.loading
                         ? <span>Cargando</span>
-                        : <button type='submit' >crear</button>
-                }
+                        : (
+                    responseApiState.data 
+                    ? <span>WORKSPACES CREADO</span>
+                    : <button>crear workspaces</button>
+                )   
+                } 
             </form>
         </div>
     )
 }
 
 export default CrearWorkspace
- */
