@@ -25,9 +25,8 @@ function App() {
                     
                     <Route path='/reset-password' element={<ResetPasswordScreen />} />
 
-                    <Route element={<ProtectedRoute/>}>
                     <Route path='/rewrite-password' element={<RewritePasswordScreen />}/>
-                    </Route>
+
                     {/* <Route path='/home' element={<HomeScreen />} /> */}
 
 
