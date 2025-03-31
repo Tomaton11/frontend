@@ -50,7 +50,7 @@ const HomeScreen = () => {
 			<div className ="container">
 				{/* <!-- Saludo --> */}
 				<div className ="greeting">
-					<h1><span className ="wave-emoji">👋</span>¡Hola otra vez! { isAuthenticatedState ? <span>Bienvenido, { user.email }</span> : <span>Bienvenido</span> }</h1>
+					<h1><span className ="wave-emoji">👋</span>¡Hola otra vez </h1>
 				</div>
 	
 				{/* <!-- Contenedor de espacios de trabajo --> */}
