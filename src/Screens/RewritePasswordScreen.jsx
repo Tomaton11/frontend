@@ -41,7 +41,7 @@ const RewritePasswordScreen = () => {
 	}
 
 	const { formState, handleChangeInput } = useForm(initialFormState)
-	const { responseApiState, putRequest } = useApiRequest(ENVIROMENT.URL_API + '/api/auth/rewrite-password?reset_token=' + reset_token)
+	const { responseApiState, putRequest } = useApiRequest(ENVIROMENT.URL_API + '/api/auth/rewrite-password?reset_token=')
 
     useEffect(
         ()=>{
