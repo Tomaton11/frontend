@@ -5,43 +5,30 @@ import { Link } from 'react-router-dom'
 import '../styles/HomeScreen.css'
 import { useNavigate } from 'react-router-dom'
 import isAuthenticatedState from '../context/AuthContext'
+import { useApiRequest } from '../hooks/useApiRequest'
+import { useForm } from '../hooks/useForm'
 
 const HomeScreen = () => {
 	const { isAuthenticatedState } = useContext(AuthContext)
 	return (
 
 		
+			
+		
 		<div className ="home">
-		<header className ="header">
+		<header className ="header-home">
 			<div className ="container header-container">
 				<div className ="logo-nav">
 					<img src="https://a.slack-edge.com/3d92b39/marketing/img/nav/slack-salesforce-logo-nav-white.png" alt="Slack" className ="logo"/>
-					<nav className ="main-nav">
-						<ul>
-							<li className ="dropdown">
-								<a href="#">Funciones <span className ="arrow-down">▼</span></a>
-							</li>
-							<li className ="dropdown">
-								<a href="#">Soluciones <span className ="arrow-down">▼</span></a>
-							</li>
-							<li>
-								<a href="#">Empresa</a>
-							</li>
-							<li className ="dropdown">
-								<a href="#">Recursos <span className ="arrow-down">▼</span></a>
-							</li>
-							<li>
-								<a href="#">Precios</a>
-							</li>
-						</ul>
-					</nav>
 				</div>
-			<div className ="header-buttons">
-					<button className ="btn btn-outline">HABLAR CON VENTAS</button>
-					<Link to = "/workspaces">
-						<button className ="btn btn-outline">CREAR NUEVO ESPACIO DE TRABAJO</button>
+				
+			
+					
+					<Link to = "/profile">
+						<button className ="btn btn-outline">Nombre</button>
 					</Link>
-				</div>
+					
+				
 			</div>
 		</header>
 		
@@ -50,7 +37,7 @@ const HomeScreen = () => {
 			<div className ="container">
 				{/* <!-- Saludo --> */}
 				<div className ="greeting">
-					<h1><span className ="wave-emoji">👋</span>¡Hola otra vez </h1>
+					<h1><span className ="wave-emoji">👋</span>¡Hola otra vez! </h1>
 				</div>
 	
 				{/* <!-- Contenedor de espacios de trabajo --> */}
@@ -79,12 +66,11 @@ const HomeScreen = () => {
 								</div>
 							</div>
 						</div>
-						<button className ="btn btn-slack" id="iniciar-slack-1">INICIAR SLACK</button>
+						<button className ="btn btn-slack" id="iniciar-slack-1">ENTRAR </button>
 					</div>
 
-					{/* <!-- Ver más --> */}
 					<div className ="ver-mas">
-						<button id="ver-mas-btn">Ver más <span className ="arrow-down">▼</span></button>
+						<button id="ver-mas-btn"></button>
 					</div>
 				</div>
 	
@@ -105,13 +91,9 @@ const HomeScreen = () => {
 			</div>
 		</main>
 	
-		{/* <!-- Pie de página --> */}
-		<footer className ="footer">
-			<div className ="container">
-				<h2>Aprende a usar Slack para trabajar</h2>
-			</div>
-		</footer>
-	</div>			
+
+	</div> 
+	
 	)
 }
 

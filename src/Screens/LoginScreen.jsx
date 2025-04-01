@@ -65,7 +65,7 @@ const LoginScreen = () => {
 		<div className="login">
 
 			{/* Header with logo and sign up link */}
-			<header className="header">	
+			<header className="header-login">	
 				<div className="header-left"></div>	
 				<div className="logo-container">
 					<img 
@@ -75,21 +75,12 @@ const LoginScreen = () => {
 				</div>
 
 
-				<div className="signup-container">
-					<div className="signup-text">
-						<p className="new-user-text">¿Nuevo en Slack?</p>
-						<Link href="#" className="create-account-link" to = "/register">
-							Crear una cuenta
-						</Link>
-					</div>
-				</div>
-
 			</header>
 			
 			{/* Main  */}
-			<main className="main">
+			<main className="main-login">
 			<div>
-				<h1 className='h1'>Conectarse a Slack</h1>
+				<h1 className='h1-login'>Conectarse a Slack</h1>
 				
 				<form onSubmit={handleSubmitForm}>
 					<div>
@@ -115,31 +106,40 @@ const LoginScreen = () => {
 							className='input-login'
 						/>
 					</div>
-					{responseApiState.error && <span style={{ color: 'red' }} className='error' >{responseApiState.error}</span>}
-					{
-						responseApiState.loading
-							? <span>Cargando</span>
-							: <button className='btn-login'>Iniciar sesion</button>
-					}
-					
-				</form>
+
 
 				<div className="forgot">
 					<div className="fotgot">
-						<Link to ="/reset-password">
+						<Link className="create-account-link" to ="/reset-password"  >
 							¿Olvidaste tu contraseña?
 						</Link>
 					</div>
 				</div>
-		</div>
-		</main>
 
-		{/* Footer */}
-		<footer className="footer">
-			<div className="container">
-				<h2></h2>
-			</div>
-		</footer>
+					{responseApiState.error && <span style={{ color: 'red' }} className='error' >{responseApiState.error}</span>}
+					{
+						responseApiState.loading
+							? <span className='span-login'>Cargando</span>
+							: <button className='btn-login'>Iniciar sesion</button>
+					}
+					
+				<div className="signup-container">
+					<div className="signup-text">
+						<p className="new-user-text">¿Nuevo en Slack?</p>
+						<Link className="create-account-link" to = "/register">
+							Crear una cuenta
+						</Link>
+					</div>
+				</div>
+
+
+				</form>
+
+				
+		
+		
+	</div>
+</main>
 
 	</div>// cierre div padre				
 	)
