@@ -1,8 +1,11 @@
-# React + Vite
+buenas mati
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+el trabajo no esta terminado
+hice grupo con ramiro dominguez, tuvimos mil problemas con el back
+yo no pude solucionar que el link que me manda para rewrite-password funcione o redirija bien
 
-Currently, two official plugins are available:
+tambien no supe como hacer que al crear un workspaces se muestre automaticamente en el home para entrar
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+si nos pudieras dar mas tiempo, un feedback y al menos unos consejos de que fijarnos o que documentacion leer.
+
+
