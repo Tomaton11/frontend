@@ -25,7 +25,7 @@ function App() {
                     
                     <Route path='/reset-password' element={<ResetPasswordScreen />} />
 
-                    <Route path='/rewrite-password?reset_token=' element={<RewritePasswordScreen />}/>
+                    <Route path='/rewrite-password' element={<RewritePasswordScreen />}/>
 
                     {/* <Route path='/home' element={<HomeScreen />} /> */}
 
