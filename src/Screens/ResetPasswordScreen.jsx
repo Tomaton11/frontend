@@ -3,6 +3,8 @@ import { useForm } from '../hooks/useForm'
 import { useApiRequest } from '../hooks/useApiRequest'
 import ENVIROMENT from '../config/enviroment'
 import { Link } from 'react-router-dom'
+import "../styles/ResetPasswordScreen.css"
+
 
 
 
@@ -20,11 +22,30 @@ const ResetPasswordScreen = () => {
 		await postRequest(formState)
 	}
 	return (
-		<div className='content'>
-			<h1 className='recuperar'>Recupera tu contraseña</h1>
-			<form onSubmit={handleSubmitForm}>
-				<div className='mail'>
-					<label htmlFor='email'>Email con el que te registraste</label>
+		<div className='login'>
+
+			<header className="header-login">	
+				<div className="header-left"></div>	
+				<div className="logo-container">
+					<img 
+						src="https://a.slack-edge.com/bv1-13/slack_logo-ebd02d1.svg" 
+						alt="Slack"
+						className="logo-login" /> 
+				</div>
+			</header>
+
+
+
+
+
+
+
+
+			<div className='main-login'>
+			<h1 className='h1-login'>Recupera tu contraseña</h1>
+			<form onSubmit={handleSubmitForm} className='form'>
+				<div className>
+					<label htmlFor='email' className='label-login'>Email con el que te registraste</label>
 					<input 
 						type="email" 
 						id='email' 
@@ -32,26 +53,37 @@ const ResetPasswordScreen = () => {
 						placeholder='email' 
 						value={formState.email} 
 						onChange={handleChangeInput} 
+						className='input-login'
 					/>
 				</div>
 
-				{responseApiState.error && <span style={{color: 'red'}}>{responseApiState.error}</span>}
+				{responseApiState.error && <span style={{color: 'red'}} className='span.login'>{responseApiState.error}</span>}
 				{
 					responseApiState.loading
-					? <span>Cargando</span>
+					? <span className='span-login'>Cargando</span>
 					: (
                         responseApiState.data 
-                        ? <span>Se te envio un mail con los pasos a seguir</span>
+                        ? <span className='span-login'>Se te envio un mail con los pasos a seguir</span>
                         : <button>Restablecer contraseña</button>
                     )
 				}
-                <Link to={'/login'}>
+
+<div className="signup-container">
+					<div className="signup-text">		
+				<Link to={'/login'} className='create-account-link'>
                     Ya tengo cuenta
                 </Link>
-                <Link to={'/register'}>
+			</div>
+			</div>
+			<div className="signup-container">
+					<div className="signup-text">
+                <Link to={'/register'} className='create-account-link'>
                     Aun no tengo cuenta
                 </Link>
+				</div>
+			</div>
 			</form>
+		</div>
 		</div>
 	)
 }

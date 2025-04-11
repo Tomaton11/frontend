@@ -96,14 +96,16 @@ const LoginScreen = () => {
 						/>
 					</div>
 					<div>
-						<label htmlFor="password" className='label-login'>Password</label>
+						<label htmlFor="password" className='label-login'>Contraseña</label>
 						<input
-							type="text"
+							type="password"
 							id='password'
 							name='password'
+							placeholder='contraseña_123*'
 							value={formState.password}
 							onChange={handleChangeInput}
-							className='input-login'
+							className='input-login'	
+							
 						/>
 					</div>
 
@@ -122,6 +124,7 @@ const LoginScreen = () => {
 							? <span className='span-login'>Cargando</span>
 							: <button className='btn-login'>Iniciar sesion</button>
 					}
+					
 					
 				<div className="signup-container">
 					<div className="signup-text">

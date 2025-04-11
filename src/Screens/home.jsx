@@ -1,14 +1,21 @@
 import React from 'react'
 import { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import '../styles/HomeScreen.css'
 import { useNavigate } from 'react-router-dom'
 import isAuthenticatedState from '../context/AuthContext'
 import { useApiRequest } from '../hooks/useApiRequest'
-import { useForm } from '../hooks/useForm'
+
+import ENVIROMENT from '../config/enviroment'
+import { useEffect } from 'react'
+import { ServerError } from '../utils/error'
+
 
 const HomeScreen = () => {
+
+	
+
 	const { isAuthenticatedState } = useContext(AuthContext)
 	return (
 
@@ -24,9 +31,7 @@ const HomeScreen = () => {
 				
 			
 					
-					<Link to = "/profile">
-						<button className ="btn btn-outline">Nombre</button>
-					</Link>
+					
 					
 				
 			</div>
@@ -43,31 +48,15 @@ const HomeScreen = () => {
 				{/* <!-- Contenedor de espacios de trabajo --> */}
 				<div className ="workspaces-container">
 					<div className="workspace-header">
-						Espacios de trabajo de 
-					</div>
+						Espacios de trabajo de Slack
+					</div>			
+
+
+
+
+
+					
 	
-					{/* <!-- Espacio de trabajo 1 --> */}
-					<div className ="workspace-item">
-						<div className ="workspace-info">
-							<div className ="workspace-icon">
-								<div className ="icon-left"></div>
-								<div className ="icon-right"></div>
-							</div>
-							<div className ="workspace-details">
-								<div className ="workspace-name"></div>
-								<div className ="workspace-members">
-									<div className ="member-avatars">
-										<div className ="avatar"></div>
-										<div className ="avatar"></div>
-										<div className ="avatar"></div>
-										<div className ="avatar"></div>
-									</div>
-									<span className ="member-count"></span>
-								</div>
-							</div>
-						</div>
-						<button className ="btn btn-slack" id="iniciar-slack-1">ENTRAR </button>
-					</div>
 
 					<div className ="ver-mas">
 						<button id="ver-mas-btn"></button>
@@ -79,7 +68,9 @@ const HomeScreen = () => {
 					<div className ="new-workspace-content">
 						<div className ="new-workspace-text">
 							<p>¿Quieres usar Slack con un equipo distinto?</p>
+							<Link>
 							<button className ="btn btn-primary" id="crear-espacio-btn">CREA UN NUEVO ESPACIO DE TRABAJO</button>
+							</Link>
 						</div>
 					</div>
 				</div>

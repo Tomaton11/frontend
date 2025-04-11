@@ -3,6 +3,7 @@ import { useForm } from '../hooks/useForm'
 import { useApiRequest } from '../hooks/useApiRequest'
 import ENVIROMENT from '../config/enviroment'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
+import "../styles/RewritePasswordScreen.css"
 
 
 
@@ -59,26 +60,35 @@ const RewritePasswordScreen = () => {
 	}
 
 
-    /* 
-    Tarea:
 
-    PUT /api/auth/reset-password
-    body: {
-        password: '',
-        reset_token
-    }
-    Validara que el token sea correcto, el token tendra dentro el _id del usuario.
-    Ustedes deberan buscar a ese usuario y modificar la contraseña por la nueva contraseña (que previamente encriptaran)
-    */
 
 	return (
-		<div className='content'>
-			<h1 className='recuperar'>Establecer nueva contraseña</h1>
-			<form onSubmit={handleSubmitForm}>
+
+
+        <div  className='login'>
+
+<header className="header-login">	
+				<div className="header-left"></div>	
+				<div className="logo-container">
+					<img 
+						src="https://a.slack-edge.com/bv1-13/slack_logo-ebd02d1.svg" 
+						alt="Slack"
+						className="logo-login" /> 
+				</div>
+			</header>
+
+
+
+
+
+            
+		<div >
+			<h1 className='h1-login'>Establecer nueva contraseña</h1>
+			<form onSubmit={handleSubmitForm} className='form'>
 				<div className='mail'>
 					<label htmlFor='password'>Nueva contraseña</label>
 					<input 
-						type="text" 
+						type="password" 
 						id='password' 
 						name='password' 
 						placeholder='NuevaContraseña' 
@@ -99,6 +109,7 @@ const RewritePasswordScreen = () => {
 				}
 			</form>
 		</div>
+                </div>
 	)
 }
 
