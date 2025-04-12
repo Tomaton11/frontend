@@ -19,6 +19,7 @@ function App() {
                     <Route path="/register" element={<RegisterScreen />} />
 
                     <Route path='/:workspaces' element={<CrearWorkspace />} />
+                    
                     <Route element = {<ProtectedRoute/>}>
                     <Route path='/' element={<HomeScreen />} />
                     </Route>

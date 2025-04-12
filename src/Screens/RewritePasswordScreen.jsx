@@ -7,6 +7,7 @@ import "../styles/RewritePasswordScreen.css"
 
 
 
+
 const RewritePasswordScreen = () => {
     const navigate = useNavigate()
     /* Forma con react router dom */
@@ -21,7 +22,9 @@ const RewritePasswordScreen = () => {
         
         },
         []
-    )
+    ) 
+
+	
     
 
     /* 
@@ -81,34 +84,35 @@ const RewritePasswordScreen = () => {
 
 
 
-            
+        <main className='main-login'>
 		<div >
 			<h1 className='h1-login'>Establecer nueva contraseña</h1>
 			<form onSubmit={handleSubmitForm} className='form'>
-				<div className='mail'>
-					<label htmlFor='password'>Nueva contraseña</label>
+				<div className='div-input'>
 					<input 
 						type="password" 
 						id='password' 
 						name='password' 
-						placeholder='NuevaContraseña' 
+						placeholder='Contraseña_123*' 
 						value={formState.password} 
-						onChange={handleChangeInput} 
+						onChange={handleChangeInput}
+						className='input-login'
 					/>
 				</div>
 
-				{responseApiState.error && <span style={{color: 'red'}}>{responseApiState.error}</span>}
+				{responseApiState.error && <span style={{color: 'red'}} className='error'>{responseApiState.error}</span>}
 				{
 					responseApiState.loading
-					? <span>Cargando</span>
+					? <span className='span-login'>Cargando</span>
 					: (
                         responseApiState.data 
-                        ? <span>Enviado</span>
-                        : <button>Establecer nueva contraseña</button>
+                        ? <span className='span-login'>Enviado</span>
+                        : <button className='btn-login'>Establecer nueva contraseña</button>
                     )
 				}
 			</form>
-		</div>
+			
+		</div></main>
                 </div>
 	)
 }
