@@ -9,6 +9,7 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/LoginScreen.css'
 
+
 /* const LoginScreen = () => {
 	const {login} = useContext(AuthContext)
 	const initialFormState ={
@@ -63,88 +64,80 @@ const LoginScreen = () => {
 	return (
 		//div padre
 		<div className="login">
+      {/* Header */}
+      <header className="header-login">
+        <div className="header-left"></div>
+        <div className="logo-container">
+          <img
+            src="https://a.slack-edge.com/bv1-13/slack_logo-ebd02d1.svg"
+            alt="Slack"
+            className="logo-login"
+          />
+        </div>
+      </header>
 
-			{/* Header with logo and sign up link */}
-			<header className="header-login">	
-				<div className="header-left"></div>	
-				<div className="logo-container">
-					<img 
-						src="https://a.slack-edge.com/bv1-13/slack_logo-ebd02d1.svg" 
-						alt="Slack"
-						className="logo-login" /> 
-				</div>
+      {/* Main */}
+      <main className="main-login">
+        <div className="container-login">
+          <h1 className="h1-login">Conectarse a Slack</h1>
 
+          <form onSubmit={handleSubmitForm} className="login-form">
+            <div className="form-group">
+              <label htmlFor="email" className="label-login">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="joedoe@mail.com"
+                value={formState.email}
+                onChange={handleChangeInput}
+                className="input-login"
+              />
+            </div>
 
-			</header>
-			
-			{/* Main  */}
-			<main className="main-login">
-			<div>
-				<h1 className='h1-login'>Conectarse a Slack</h1>
-				
-				<form onSubmit={handleSubmitForm}>
-					<div>
-						<label htmlFor='email' className='label-login'>Email</label>
-						<input
-							type="email"
-							id='email'
-							name='email'
-							placeholder='joedoe@mail.com'
-							value={formState.email}
-							onChange={handleChangeInput}
-							className='input-login'
-						/>
-					</div>
-					<div>
-						<label htmlFor="password" className='label-login'>Contraseña</label>
-						<input
-							type="password"
-							id='password'
-							name='password'
-							placeholder='contraseña_123*'
-							value={formState.password}
-							onChange={handleChangeInput}
-							className='input-login'	
-							
-						/>
-					</div>
+            <div className="form-group">
+              <label htmlFor="password" className="label-login">Contraseña</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="contraseña_123*"
+                value={formState.password}
+                onChange={handleChangeInput}
+                className="input-login"
+              />
+            </div>
 
+            <div className="forgot">
+              <Link className="create-account-link" to="/reset-password">
+                ¿Olvidaste tu contraseña?
+              </Link>
+            </div>
 
-				<div className="forgot">
-					<div className="fotgot">
-						<Link className="create-account-link" to ="/reset-password"  >
-							¿Olvidaste tu contraseña?
-						</Link>
-					</div>
-				</div>
+            {responseApiState.error && (
+              <div className="error-container">
+                <span className="error">{responseApiState.error}</span>
+              </div>
+            )}
 
-					{responseApiState.error && <span style={{ color: 'red' }} className='error' >{responseApiState.error}</span>}
-					{
-						responseApiState.loading
-							? <span className='span-login'>Cargando</span>
-							: <button className='btn-login'>Iniciar sesion</button>
-					}
-					
-					
-				<div className="signup-container">
-					<div className="signup-text">
-						<p className="new-user-text">¿Nuevo en Slack?</p>
-						<Link className="create-account-link" to = "/register">
-							Crear una cuenta
-						</Link>
-					</div>
-				</div>
+            {
+              responseApiState.loading
+                ? <span className="span-login">Cargando...</span>
+                : <button type="submit" className="btn-login">Iniciar sesión</button>
+            }
 
-
-				</form>
-
-				
-		
-		
-	</div>
-</main>
-
-	</div>// cierre div padre				
+            <div className="signup-container">
+              <div className="signup-text">
+                <p className="new-user-text">¿Nuevo en Slack?</p>
+                <Link className="create-account-link" to="/register">
+                  Crear una cuenta
+                </Link>
+              </div>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>// cierre div padre				
 	)
 	} 
 
