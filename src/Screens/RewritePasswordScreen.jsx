@@ -15,11 +15,11 @@ const RewritePasswordScreen = () => {
     const reset_token = searchParams.get('reset_token')
     useEffect(
         ()=>{
-            
+            /* 
             if(!reset_token) {
                 navigate('/login')
             }
-        
+         */
         },
         []
     ) 
@@ -66,54 +66,43 @@ const RewritePasswordScreen = () => {
 
 
 	return (
+<div className='rewrite'>
+  <header className="rewrite-header">	
+    <div className="rewrite-header-left"></div>	
+    <div className="rewrite-logo-container">
+      <img 
+        src="https://a.slack-edge.com/bv1-13/slack_logo-ebd02d1.svg" 
+        alt="Slack"
+        className="rewrite-logo" 
+      /> 
+    </div>
+  </header>
 
+  <main className='rewrite-main'>
+    <h1 className='rewrite-title'>Establecer nueva contraseña</h1>
+    <form onSubmit={handleSubmitForm} className='rewrite-form'>
+      <input 
+        type="password" 
+        id='password' 
+        name='password' 
+        placeholder='Contraseña_123*' 
+        value={formState.password} 
+        onChange={handleChangeInput}
+        className='rewrite-input'
+      />
 
-        <div  className='login'>
+      {responseApiState.error && <span className='rewrite-error'>{responseApiState.error}</span>}
 
-<header className="header-login">	
-				<div className="header-left"></div>	
-				<div className="logo-container">
-					<img 
-						src="https://a.slack-edge.com/bv1-13/slack_logo-ebd02d1.svg" 
-						alt="Slack"
-						className="logo-login" /> 
-				</div>
-			</header>
-
-
-
-
-
-        <main className='main-login'>
-		<div >
-			<h1 className='h1-login'>Establecer nueva contraseña</h1>
-			<form onSubmit={handleSubmitForm} className='form'>
-				<div className='div-input'>
-					<input 
-						type="password" 
-						id='password' 
-						name='password' 
-						placeholder='Contraseña_123*' 
-						value={formState.password} 
-						onChange={handleChangeInput}
-						className='input-login'
-					/>
-				</div>
-
-				{responseApiState.error && <span style={{color: 'red'}} className='error'>{responseApiState.error}</span>}
-				{
-					responseApiState.loading
-					? <span className='span-login'>Cargando</span>
-					: (
-                        responseApiState.data 
-                        ? <span className='span-login'>Enviado</span>
-                        : <button className='btn-login'>Establecer nueva contraseña</button>
-                    )
-				}
-			</form>
-			
-		</div></main>
-                </div>
+      {responseApiState.loading ? (
+        <span className='rewrite-span'>Cargando</span>
+      ) : (
+        responseApiState.data 
+          ? <span className='rewrite-span'>Enviado</span>
+          : <button className='rewrite-button'>Establecer nueva contraseña</button>
+      )}
+    </form>
+  </main>
+</div>
 	)
 }
 

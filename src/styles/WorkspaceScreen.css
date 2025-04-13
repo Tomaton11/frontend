@@ -1,0 +1,35 @@
+.workspace-detail {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    text-align: center;
+  }
+  
+  .workspace-card h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #007a5a;
+  }
+  
+  .workspace-card p {
+    font-size: 1.1rem;
+    color: #444;
+  }
+  
+  .btn-back {
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #007a5a;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .btn-back:hover {
+    color: #004f3a;
+  }
+  
