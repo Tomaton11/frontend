@@ -22,7 +22,7 @@ const HomeScreen = () => {
 	useEffect(() => {
 		const fetchWorkspaces = async () => {
 			try {
-				const res = await fetch(`${ENVIROMENT.URL_API}/api/:workspace_id`);
+				const res = await fetch(`${ENVIROMENT.URL_API}/api/workspaces`);
 				const data = await res.json();
 				if (res.ok) {
 					setWorkspaces(data.data || []);
