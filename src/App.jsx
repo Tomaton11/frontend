@@ -19,7 +19,9 @@ function App() {
 
                     <Route path="/register" element={<RegisterScreen />} />
 
-
+                    <Route path="/" element={<Navigate to="/login" />} />
+                    
+                    <Route path="*" element={<Navigate to="/login" />} />
 
                     <Route path="/workspace/:id" element={<WorkspaceScreen />} />
 
