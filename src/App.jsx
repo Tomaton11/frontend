@@ -23,11 +23,19 @@ function App() {
 
                     <Route path="/workspace/:id" element={<WorkspaceScreen />} />
 
+                    <Route path="/home" element={<HomeScreen />} />
+
                     <Route path="/home/:userId" element={<HomeScreen />} />
                     
                     <Route path='/reset-password' element={<ResetPasswordScreen />} />
 
                     <Route path='/rewrite-password' element={<RewritePasswordScreen />}/>
+
+                    <Route path="/register-workspace" element={<CrearWorkspace />} />
+
+                    <Route path="/workspace/:workspaceId" element={<WorkspaceScreen />} />
+
+
 
                     {/* <Route path='/home' element={<HomeScreen />} /> */}
 

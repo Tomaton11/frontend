@@ -1,47 +1,56 @@
-// src/pages/WorkspaceScreen.jsx
-import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import { useApiRequest } from '../hooks/useApiRequest'
-import ENVIROMENT from '../config/enviroment'
-import '../styles/WorkspaceScreen.css'
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import ENVIROMENT from '../config/enviroment';
 
 const WorkspaceScreen = () => {
-  const { id } = useParams()
-  const navigate = useNavigate()
-  const { responseApiState, getRequest } = useApiRequest(`${ENVIROMENT.URL_API}/api/:workspaces_id`)
-  const [workspace, setWorkspace] = useState(null)
+	const { workspaceId } = useParams();
+	const [workspace, setWorkspace] = useState(null);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
+	const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchWorkspace = async () => {
-      await getRequest()
-    }
+	useEffect(() => {
+		const fetchWorkspace = async () => {
+			try {
+				const token = localStorage.getItem('token');
+				const res = await fetch(`${ENVIROMENT.URL_API}/api/workspaces/${workspaceId}`, {
+					headers: {
+						Authorization: `Bearer ${token}`
+					}
+				});
+				const data = await res.json();
 
-    fetchWorkspace()
-  }, [id])
+				if (res.ok) {
+					setWorkspace(data.data.workspace);
+				} else {
+					setError(data.message || 'Error al cargar workspace');
+				}
+			} catch (err) {
+				setError('Error de conexión con el servidor');
+			} finally {
+				setLoading(false);
+			}
+		};
 
-  useEffect(() => {
-    if (responseApiState.data) {
-      setWorkspace(responseApiState.data.data)
-    }
-  }, [responseApiState])
+		fetchWorkspace();
+	}, [workspaceId]);
 
-  if (responseApiState.loading) return <p className="loading">Cargando...</p>
-  if (responseApiState.error) return <p className="error">Error: {responseApiState.error}</p>
+	if (loading) return <p>Cargando workspace...</p>;
+	if (error) return <p style={{ color: 'red' }}>{error}</p>;
 
-  return (
-    <div className="workspace-detail">
-      <button className="btn-back" onClick={() => navigate(-1)}>← Volver</button>
-      {workspace ? (
-        <div className="workspace-card">
-          <h1>{workspace.name}</h1>
-          <p>ID: {workspace._id}</p>
-          {/* Agrega más detalles si tienes */}
-        </div>
-      ) : (
-        <p>No se encontró el workspace.</p>
-      )}
-    </div>
-  )
-}
+	return (
+		<div style={{ padding: '32px' }}>
+			<button onClick={() => navigate('/home')}>← Volver</button>
+			<h1>{workspace.name}</h1>
 
-export default WorkspaceScreen
+			<h3>Miembros:</h3>
+			<ul>
+				{workspace.members.map((memberId) => (
+					<li key={memberId}>{memberId}</li>
+				))}
+			</ul>
+		</div>
+	);
+};
+
+export default WorkspaceScreen;

@@ -1,12 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { AuthContext } from '../context/AuthContext'
-import { Link, useParams, useNavigate } from 'react-router-dom'
-import { useApiRequest } from '../hooks/useApiRequest'
-import ENVIROMENT from '../config/enviroment'
-import '../styles/HomeScreen.css'
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../context/AuthContext';
+import { Link, useNavigate } from 'react-router-dom';
+import ENVIROMENT from '../config/enviroment';
+import '../styles/HomeScreen.css';
 
 const HomeScreen = () => {
-	const { userId } = useParams(); // Obtener el ID desde la URL
 	const navigate = useNavigate();
 	const { isAuthenticatedState } = useContext(AuthContext);
 	const [workspaces, setWorkspaces] = useState([]);
@@ -22,10 +20,18 @@ const HomeScreen = () => {
 	useEffect(() => {
 		const fetchWorkspaces = async () => {
 			try {
-				const res = await fetch(`${ENVIROMENT.URL_API}/api/workspaces`);
+				const token = localStorage.getItem('token');
+
+				const res = await fetch(`${ENVIROMENT.URL_API}/api/workspaces`, {
+					headers: {
+						Authorization: `Bearer ${token}`
+					}
+				});
 				const data = await res.json();
+
 				if (res.ok) {
-					setWorkspaces(data.data || []);
+					const { owned_workspaces = [], member_workspaces = [] } = data.data || {};
+					setWorkspaces([...owned_workspaces, ...member_workspaces]);
 				} else {
 					setError(data.message || 'Error al cargar workspaces');
 				}
@@ -36,10 +42,10 @@ const HomeScreen = () => {
 			}
 		};
 
-		if (userId) {
+		if (isAuthenticatedState) {
 			fetchWorkspaces();
 		}
-	}, [userId]);
+	}, [isAuthenticatedState]);
 
 	return (
 		<div className="home">
@@ -73,22 +79,17 @@ const HomeScreen = () => {
 							<p className="no-workspaces">No tienes espacios de trabajo aún.</p>
 						)}
 
-<ul className="workspace-list">
-  {workspaces.length > 0 ? (
-    workspaces.map((workspace) => (
-      <li
-        key={workspace._id}
-        className="workspace-item"
-        onClick={() => navigate(`/workspace/${workspace._id}`)}
-      >
-        {workspace.name}
-      </li>
-    ))
-  ) : (
-    <p className="no-workspaces">No tienes espacios de trabajo todavía.</p>
-  )}
-</ul>
-
+						<ul className="workspace-list">
+							{workspaces.map((workspace) => (
+								<li
+									key={workspace._id}
+									className="workspace-item"
+									onClick={() => navigate(`/workspace/${workspace._id}`)}
+								>
+									{workspace.name}
+								</li>
+							))}
+						</ul>
 					</div>
 
 					<div className="new-workspace-container">
