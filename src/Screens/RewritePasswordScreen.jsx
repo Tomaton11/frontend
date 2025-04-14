@@ -15,31 +15,15 @@ const RewritePasswordScreen = () => {
     const reset_token = searchParams.get('reset_token')
     useEffect(
         ()=>{
-            /* 
+            
             if(!reset_token) {
                 navigate('/login')
             }
-         */
+          
         },
         []
     ) 
 
-	
-    
-
-    /* 
-	Forma nativa
-    useEffect(
-        ()=>{
-            const searchParams = new URLSearchParams(window.location.search)
-            const reset_token = searchParams.get('reset_token')
-            if(!reset_token) {
-                navigate('/login')
-            }
-        },
-        []
-    ) */
-    
 	const initialFormState ={
 		password: ''
 	}

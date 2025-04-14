@@ -20,7 +20,8 @@ const HomeScreen = () => {
 	useEffect(() => {
 		const fetchWorkspaces = async () => {
 			try {
-				const token = localStorage.getItem('token');
+				const token = localStorage.getItem('token');	
+				
 
 				const res = await fetch(`${ENVIROMENT.URL_API}/api/workspaces`, {
 					headers: {

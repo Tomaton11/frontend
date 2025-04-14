@@ -40,6 +40,7 @@ const WorkspaceScreen = () => {
 
 	return (
 		<div style={{ padding: '32px' }}>
+            
 			<button onClick={() => navigate('/home')}>← Volver</button>
 			<h1>{workspace.name}</h1>
 

@@ -19,11 +19,10 @@ function App() {
 
                     <Route path="/register" element={<RegisterScreen />} />
 
-                    <Route path="/" element={<HomeScreen />} />
+
 
                     <Route path="/workspace/:id" element={<WorkspaceScreen />} />
 
-                    <Route path="/home" element={<HomeScreen />} />
 
                     <Route path="/home/:userId" element={<HomeScreen />} />
                     

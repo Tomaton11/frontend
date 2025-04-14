@@ -39,7 +39,6 @@ const LoginScreen = () => {
 		if (responseApiState.data) {
 			const { authorization_token } = responseApiState.data.data;
 			const decoded = decodeJWT(authorization_token);
-			console.log("Login response:", responseApiState.data);
 			if (decoded && decoded._id) {
 				login(authorization_token);
 				navigate(`/home/${decoded._id}`);
