@@ -1,11 +1,22 @@
-buenas mati
+# 🧑‍💻 Frontend 
 
-el trabajo no esta terminado
-hice grupo con ramiro dominguez, tuvimos mil problemas con el back
-yo no pude solucionar que el link que me manda para rewrite-password funcione o redirija bien
+Este repositorio contiene la interfaz de usuario de un e-commerce desarrollada con React y TypeScript, como parte de un proyecto full stack.
 
-tambien no supe como hacer que al crear un workspaces se muestre automaticamente en el home para entrar
+---
 
-si nos pudieras dar mas tiempo, un feedback y al menos unos consejos de que fijarnos o que documentacion leer.
+## 🌐 Tecnologías
 
+- React
+- TypeScript
+- Vite
+- CSS
 
+---
+
+## 🚀 Instalación
+
+```bash
+git clone https://github.com/Tomaton11/frontend.git
+cd frontend
+npm install
+npm run dev
